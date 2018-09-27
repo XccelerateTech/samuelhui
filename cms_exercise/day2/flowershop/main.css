@@ -1,0 +1,97 @@
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+}
+
+#makeItcoloum {
+    display: flex;
+  flex-direction: column;
+}
+
+#companytag {
+    
+    top:0%;
+
+}
+
+#main {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+
+
+img {max-width:100%;}
+
+#bgFlex {
+    
+    background-color: palegreen;
+}
+
+.bg {
+
+    top: 13%;
+    filter: brightness(50%);
+    height:100%;
+    z-index: -1; 
+}
+
+.responsive {
+    display: flex;
+    justify-content: center;
+}
+#beautifulFlowers {
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+
+#learnCenter {
+       display: flex;
+    justify-content: center;
+}
+
+#learnMore {
+    font-size: 2vw;
+    background-color: greenyellow;
+    margin: 1px;
+    width: 20%;
+    height: auto;
+    border-radius: 29px;
+    color: white;
+    padding: 0.1px;
+    text-align: center;
+}
+
+#learnCenter:hover {
+    filter: brightness(50%);
+}
+
+#bottom {
+      background-color: palegreen;
+    
+}
+
+.rowBottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.rowBottom > div {
+	width: 50%;
+	padding: 10px;
+}
+
+.bottomPara {
+    font-size:2.5vw;
+    
+    
+}
+
+.bottomIcon{
+    width: 70%;
+}

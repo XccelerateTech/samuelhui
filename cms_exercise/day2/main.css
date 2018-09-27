@@ -1,0 +1,46 @@
+#color_box {
+    height: 200px;
+    weight: 400px;
+}
+
+#redBox {
+    position: relative;
+    top: 0%;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+        
+}
+
+#blueBox {
+    position: relative;
+    left: 25%;
+    top: 0%;
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+}
+
+#greenBox {
+    position: relative;
+    left: 50%;
+    top: -100%;
+    background-color: green;
+    width: 100px;
+    height: 100px;
+}
+
+.p {
+    position: static;
+    color: blue;
+}
+
+.d {
+    margin: 10px;
+}
+
+
+#flexdisplay {
+    display: flex;
+  flex-direction: column;
+}
