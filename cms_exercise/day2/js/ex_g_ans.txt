@@ -1,0 +1,5 @@
+False
+True
+8
+F
+True
