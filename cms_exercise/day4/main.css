@@ -1,0 +1,129 @@
+.jumbo-bg {
+    background: url(./image/jumbo01.jpg) no-repeat center center;
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: #444444;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 9vh;
+}
+
+.hr-line {
+    margin: 50vh;
+    height: 0.3vh;
+    border: none;
+    background-color: rgb(226, 80, 80);
+}
+
+.light-font {
+    color: white;
+}
+
+.red-font {
+    color: rgb(226, 80, 80);
+}
+
+.gray-light-font {
+    color: rgb(236, 236, 236);
+}
+
+.jumbo-section-bg {
+    background: rgb(226, 80, 80);
+    height: 70vh;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hr-line-white {
+    margin: 50vh;
+    height: 0.3vh;
+    border: none;
+    background-color: rgb(255, 255, 255);
+}
+
+.jumbo-section-white-bg {
+    background: rgb(255, 255, 255);
+    margin-bottom: 0vh;
+}
+
+
+.cat-pic-spec {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+
+}
+
+.cat-padding {
+    padding: 5px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    padding: 5px;
+    background-color: rgb(226, 80, 80);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cat-padding:hover .overlay {
+    opacity: 0.8;
+}
+
+
+.jumbotron {
+    overflow: hidden;
+
+
+}
+
+
+    .jumbo-contact-bg {
+        background: rgb(119, 115, 115);
+        height: 70vh;
+    }
+
+
+
+@media screen and (max-width: 768px) {    
+    .jumbo-contact-bg {
+        background: rgb(119, 115, 115);
+        height: 1000px;
+    }
+}
+
+.icon {
+    margin-top: 35px;
+
+}
+
+
+.no-margin-bottom {
+    margin-bottom: 0px;
+}
+
+.margin-top {
+    margin-top: 35px;
+
+}
+
+.grey-bg {
+    background: rgb(119, 115, 115);
+
+
+}
