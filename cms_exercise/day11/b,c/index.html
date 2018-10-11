@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax B</title>
+</head>
+
+<body>
+    <h1>Cool</h1>
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        //exercise B
+        function informMe(catagory, value) {
+            $(function () {
+                $.ajax({
+                        url: `https://restcountries.eu/rest/v2/${catagory}/${value}`,
+                        beforeSend: function () {
+                            console.log("getting rest api")
+                        }
+                    })
+                    .done(function (x) {
+                        console.log(x)
+                    })
+                    .fail(function (x) {
+                        console.log("something happens...")
+                    })
+
+            })
+        }
+
+            //exercise C
+
+        function informMe2(catagory, value) {
+            $(function () {
+                $.get(`https://restcountries.eu/rest/v2/${catagory}/${value}`)
+
+                    .done(function (x) {
+                        console.log(x)
+                    })
+                    .fail(function (x) {
+                        console.log("something happens...")
+                    })
+
+            })
+        }
+
+        informMe2("capital", "berlin")
+    </script>
+
+</body>
+
+</html>

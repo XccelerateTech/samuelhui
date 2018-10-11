@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+
+<body>
+    <h1>Get Sunrise & SUnset API</h1>
+    <form>
+        <input type="text" name="lat" placeholder="latitude" value="22.28552" required>
+        <input type="text" name="lng" placeholder="longtitude" value="114.15769" required>
+        <input type="submit" name="submit" value="submit">
+    </form>
+    <div id ="result"> 
+        <h1>Result</h1>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        
+        $('input[type="submit"]').click(getSun())
+        
+        function getSun(){  
+            let lat = $('input[name="lat"]').val()
+            let lng = $('input[name="lng"]').val()
+
+
+            $.get(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`)
+            .done((x)=>$('#result').append(<p>x</p>))
+            .fail(()=>console.log("error occur"))
+
+        }
+
+    
+    </script>
+</body>
+
+</html>

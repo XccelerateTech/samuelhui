@@ -1,0 +1,148 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <header id='header'>
+        <h1>Contacts</h1>
+    </header>
+    <div id="content">
+        <section class="sections" id="new-contact">
+            <h1>Create New Contact</h1>
+            <form id="form1">
+                <div id="row-name">
+                    <input type='text' name="name" placeholder="Name" />
+                </div>
+                <div id="row-phone">
+                    <input type='text' name="phone" placeholder="Telephone Number" />
+                </div>
+                <div id="row-email">
+                    <input type='text' name="email" placeholder="Email" />
+                </div>
+                <div id="row-submit">
+                    <input type="submit" value="submit" />
+                </div>
+                <div id="row-clear">
+                    <input type="reset" value="clear" />
+                </div>
+            </form>
+        </section>
+        <section class="sections" id="update-contact">
+            <h1>Updated Contact List</h1>
+            <form id="form2">
+                <div id="row-name">
+                    <input type='text' name="name" placeholder="Name" />
+                </div>
+                <div id="row-phone">
+                    <input type='text' name="phone" placeholder="Telephone Number" />
+                </div>
+                <div id="row-email">
+                    <input type='text' name="email" placeholder="Email" />
+                </div>
+                <div id="row-submit">
+                    <input type="submit" value="submit" />
+                </div>
+                <div id="row-clear">
+                    <input type="reset" value="clear" />
+                </div>
+            </form>
+        </section>
+        <section class="sections" id="contact-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Telephone Number</th>
+                        <th>email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row">
+                        <td>Sam</td>
+                        <td>123456789</td>
+                        <td>sam@gmail.com</td>
+                    </tr>
+                    <tr class="row">
+                        <td>Tom</td>
+                        <td>987654321</td>
+                        <td>tom@gmail.com</td>
+                    </tr>
+                    <tr class="row">
+                        <td>Nadim</td>
+                        <td>54678292</td>
+                        <td>nadim@gmail.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <h2>Updated list</h2>
+
+    </div>
+    <footer>
+    </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // Validate using JQuery the name should be less than 50 characters 
+        // When the input field is invalid, the border of the corresponding input should be changed to red
+        $('div#row-name input').focusout(function () {
+            if ($(this).val().length > 50) {
+                $(this).css("border", "2px solid red")
+            } else {
+                $(this).css("border", "")
+            }
+        })
+
+        // Validate phone number should be between 6 numbers to 16 numbers
+        // When the input field is invalid, the border of the corresponding input should be changed to red
+        $('div#row-phone input').focusout(function () {
+            if ($.isNumeric($(this).val()) == true) {
+                if ($(this).val().length > 6 && $(this).val().length < 16) {
+                    $(this).css("border", "")
+                } else {
+                    $(this).css("border", "2px solid red")
+                }
+            } else if ($(this).val().length == 0) {
+                $(this).css("border", "")
+            } else {
+                $(this).css("border", "2px solid red")
+
+            }
+        })
+        // The Clear button should remove all the value input to the text box.
+        $('div#row-clear input').click(function () {
+            $('input').css("border", "")
+
+        })
+        // (#### completed ####)Add a Update Contacts list section for the page which has the same validation as the create contact list.
+        // When I click on the row of the contact list, the values of the contact list should be filled in to the update form.
+        
+        // Alert the input of name , phone number and email after both forms are submitted and validated.
+        $('#form1').submit(function(event){
+        event.preventDefault(); 
+        var name = event.target.name.value;
+        var email = event.target.email.value;
+        var phone = event.target.phone.value;
+        alert("Form submitted name:"+ name +", phone:"+ phone + ", email:" + email)
+        
+        })
+        $('#form2').submit(function(event){
+        event.preventDefault(); 
+        var name = event.target.name.value;
+        var email = event.target.email.value;
+        var phone = event.target.phone.value;
+        alert("Form submitted name:"+ name +", phone:"+ phone + ", email:" + email)
+        
+        })
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

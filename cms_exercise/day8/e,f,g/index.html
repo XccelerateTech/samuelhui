@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+
+<body>
+    <div class="testRm">
+        <h1>My Homepage</h1>
+        <h1>My Homepage2</h1>
+        <h1>My Homepage3</h1>
+        <h1>My Homepage4</h1>
+    </div>
+
+    <div class="content-section">
+        <p>
+            I'm a paragraph
+        </p>
+    </div>
+    <div class="content-section">
+        <h3>Section Heading</h3>
+        <p>
+            Another paragraph
+        </p>
+        <div id="info-field">
+            <p>
+                changing color using js
+            </p>
+        </div>
+    </div>
+    <script>
+        //exercise E
+        let p = document.getElementById("info-field").childNodes
+        p[1].style.color = "red"
+
+        /*exercise F  Write a function that takes one parameter which represents a class name. 
+        The function should return an array with all elements that have the class name.*/
+        let contentBg = document.getElementsByClassName("content-section");
+        [...contentBg].forEach(function (x) {
+            x.style.backgroundColor = "yellow"
+        })
+
+        /*G Write a function that takes an id as a parameter, 
+        it should look for an element with that id and remove all it’s child elements.*/
+        var rm = document.getElementsByClassName("testRm")[0].getElementsByTagName("h1");
+        [...rm].forEach((x)=> x.remove(x));
+        
+    </script>
+
+
+</body>
+
+</html>
