@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <section class="playArea">
+        <h3>Tic Tac Toe</h3>
+        <table>
+            <tr>
+                <td class="no-left no-top" tdId="#t1"></td>
+                <td class="no-top" tdId="#t2"></td>
+                <td class="no-top no-right" tdId="#t3"></td>
+            </tr>
+            <tr>
+                <td class="no-left" tdId="#t4"></td>
+                <td tdId="#t5"></td>
+                <td class="no-right" tdId="#t6"></td>
+            </tr>
+            <tr>
+                <td class="no-left no-bottom" tdId="#t7"></td>
+                <td class="no-bottom" tdId="#t8"></td>
+                <td class="no-bottom no-right" tdId="#t9"></td>
+            </tr>
+        </table>
+        <button id="start" value="start" name="start">Start</button>
+        <button value="reset" name="reset">Reset</button>
+        <button id="ai">vs Comp (fucked up) dont click</button>
+        <div id="stat">
+
+            <p id="win"></p>
+        </div>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            let xoarr = []
+            let xCount = 0;
+            let oCount = 0;
+            let winStatus = false;
+
+
+            $('#ai').click(function (){
+                let x = "x"
+                let o = "o"
+                let r = ran()
+                if(oCount == 0 ){
+                $('td').eq(r).hide().html(o).fadeIn(1000)
+                oCount++
+                }
+
+                $('td').click(function () {
+                    if ($(this).text() == "" && winStatus == false) {
+                        if (oCount < 6 && xCount < 5) {
+                            if (xCount < oCount) {
+                                $(this).hide().html(x).fadeIn(1000)
+                                isWin()
+                                xCount++
+                                // for(;$('td').eq(r).text() == "o" || $('td').eq(r).text() == "x";){   
+                                //     ran()                               
+                                // }
+                                
+                            } else {
+                                $(this).hide().html(o).fadeIn(1000)
+                                isWin()
+                                oCount++
+                            }
+                        }
+                    }
+                })
+
+
+
+
+                
+
+                
+            })
+
+            function ran(){
+                var r = Math.round(Math.random()*8)
+                return r
+            }
+            
+
+
+            $('button[name="start"]').click(function () {
+                console.log("game start")
+
+
+                $('td').click(function () {
+                    let x = "x"
+                    let o = "o"
+
+                    if ($(this).text() == "" && winStatus == false) {
+                        if (oCount < 6 && xCount < 5) {
+                            if (oCount == 0) {
+                                $(this).hide().html(o).fadeIn(1000)
+                                isWin()
+                                oCount++
+                            } else if (xCount < oCount) {
+                                $(this).hide().html(x).fadeIn(1000)
+                                isWin()
+                                xCount++
+                            } else {
+                                $(this).hide().html(o).fadeIn(1000)
+                                isWin()
+                                oCount++
+                            }
+                        }
+                    }
+                })
+            })
+
+            
+
+            $('button[name="reset"]').click(function () {
+                xCount = 0;
+                oCount = 0;
+                winStatus = false;
+                $('#win').html("")
+                $("td").html("")
+            })
+
+            function whoWin() {
+                let gg = xCount + oCount
+                if (gg % 2 == 0) {
+                    $('#win').append("<p>Player 1 WIN!!</p>")
+                } else {
+                    $('#win').append("<p>Player 2 WIN!!</p>")
+                }
+            }
+
+            function isWin() {
+                xoarr = []
+
+                $('td').each(function (x) {
+                    let y = $(this).text()
+                    xoarr.push(y)
+                })
+
+                if (xoarr[0] == xoarr[1] && xoarr[1] == xoarr[2] && xoarr[2] != 0) {
+                    winStatus = true
+                    whoWin()
+                } else if (xoarr[3] == xoarr[4] && xoarr[4] == xoarr[5] && xoarr[5] != 0) {
+                    winStatus = true
+                    whoWin()
+                } else if (xoarr[6] == xoarr[7] && xoarr[7] == xoarr[8] && xoarr[8] != 0) {
+                    winStatus = true
+                    whoWin()
+                } else if (xoarr[0] == xoarr[3] && xoarr[3] == xoarr[6] && xoarr[6] != 0) {
+                    winStatus = true
+                    whoWin()
+                } else if (xoarr[1] == xoarr[4] && xoarr[4] == xoarr[7] && xoarr[7] != 0) {
+                    winStatus = true
+                    whoWin()
+                } else if (xoarr[2] == xoarr[5] && xoarr[5] == xoarr[8] && xoarr[8] != 0) {
+                    winStatus = true
+                    whoWin()
+                } else if (xoarr[0] == xoarr[4] && xoarr[4] == xoarr[8] && xoarr[8] != 0) {
+                    winStatus = true
+                    whoWin()
+                } else if (xoarr[2] == xoarr[4] && xoarr[4] == xoarr[6] && xoarr[6] != 0) {
+                    winStatus = true
+                    whoWin()
+                } else {
+                    winStatus = false
+                }
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

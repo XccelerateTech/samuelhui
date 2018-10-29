@@ -1,0 +1,41 @@
+.icon-style-x{
+    color: red;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+
+
+}
+
+
+
+
+td{
+    height: 60px;
+    width: 60px;
+    border: solid;
+    
+}
+
+table{
+    text-align: center; 
+    vertical-align: middle;
+    font-size: 40px;
+}
+
+
+.no-top{
+    border-top-style: hidden;
+}
+
+.no-left{
+    border-left-style: hidden; 
+}
+
+.no-right{
+    border-right-style: hidden; 
+}
+
+.no-bottom{
+    border-bottom-style: hidden; 
+}
