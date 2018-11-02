@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <title>Simple Drop Box</title>
+</head>
+
+<body>
+    <div class ="header">
+        <h1>Let's upload your stuff!</h1>
+    </div>
+    <div class ="myForm">
+        <form class ="form" action="/success" method="POST" encType="multipart/form-data">
+            <div>
+                <label>
+                    Choose your file:
+                    <input type='file' name="upFile"/>
+                </label>
+            </div>
+            <br/>
+            <div>
+                <label>
+                    Upload your file:
+                        <input type='submit' value="Upload"/>
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class ="header">
+        <h5>Download your file with path: YourSite:port/files/filename</h5>
+    </div>
+
+
+</body>
+
+</html>
