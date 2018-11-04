@@ -5,36 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./asset/main.css">
+
     <title>Simple Drop Box</title>
 </head>
 
-<body>
-    <div class ="header">
-        <h1>Let's upload your stuff!</h1>
-    </div>
-    <div class ="myForm">
-        <form class ="form" action="/success" method="POST" encType="multipart/form-data">
+<body onload="listInit()">
+    <div class="myForm">
+            <h1>Let's upload your stuff!</h1>
+            <br />
+            <h5>You can access with path: YourSite:port/files/filename</h5>
+            <br />
+            <br />
+        <form class="form" action="/success" method="POST" encType="multipart/form-data">
             <div>
                 <label>
                     Choose your file:
-                    <input type='file' name="upFile"/>
+                    <input type='file' name="upFile" />
                 </label>
             </div>
-            <br/>
+            <br />
             <div>
                 <label>
                     Upload your file:
-                        <input type='submit' value="Upload"/>
+                    <input type='submit' value="Upload" />
                 </label>
             </div>
         </form>
-    </div>
-    <div class ="header">
-        <h5>Download your file with path: YourSite:port/files/filename</h5>
+        <br />
+        <button id="update">Uplate file list</button>
+        <br />
+        <div>
+            <table id="fileList" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Right Click Download</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="/asset/listInit.js"></script>
 </body>
 
 </html>
