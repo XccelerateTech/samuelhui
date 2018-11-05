@@ -7,7 +7,7 @@ function listInit() {
             filesProp = data
 
             for (let i = 0; i < filesProp.name.length; i++) {
-                $("#fileList").append(`<tr><th>${filesProp.name[i]}</th><th><a href="${filesProp.path[i]}"><span>Download</span></a></th></tr>`)
+                $("#fileList").append(`<tr><th>${filesProp.name[i]}</th><th><a href="${filesProp.path[i]}" download="${filesProp.name[i]}"><span>Download</span></a></th></tr>`)
             }
         })
 }
