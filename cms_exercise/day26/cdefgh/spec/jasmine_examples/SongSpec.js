@@ -38,7 +38,9 @@ describe("Test Song Methods", function () {
     });
 
     it("check if two song are written by same author, are in the same album and with the same name but two different song objects", function () {
-        expect(otherSong2).toBe(otherSong3);
+        expect(otherSong2.name).toBe(otherSong3.name);
+        expect(otherSong2.album).toBe(otherSong3.album);
+        expect(otherSong2.author).toBe(otherSong3.author);
     });
 
     it("check if two song are written by same author, are in the same album and with the same name but two different song objects", function () {
