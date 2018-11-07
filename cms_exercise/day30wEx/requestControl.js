@@ -1,17 +1,14 @@
 const express = require('express');
 const router = express.Router()
-const NoteService = require('./stcikyActions')
+//const NoteService = require('./stcikyActions')
 
 
-const noteService = new NoteService('/json/message.json')
 
 
 
 //when user enter the his sticky note page
 router.get('/user/:id', function (req, res) {
     const id = req.params.id
-    noteService.listNote()
-    .then((data)=>{data})
     //res.json(allMsg)
     console.log(`return msg of user: ${req.params.id} in json file`)
 });
