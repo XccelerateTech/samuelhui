@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const requestControl = require('./requestControl')
-//const noteService = require('./stcikyActions')
 const basicAuth = require('express-basic-auth')
 let app = express();
 
@@ -17,10 +16,34 @@ let userList = {
 }
 */
 
-// app.use(basicAuth({
-//     challenge: true,
-//     users: { 'admin': 'admin' }
-// }));
+app.use(basicAuth({
+    authorizer: myAuthorizer,
+    challenge: true,
+    realm: 'My Application'
+}));
+const USERS = [
+    {
+        "username":"admin",
+        "password":"admin"
+    },
+    {
+        "username":"samuel",
+        "password":"samuel"
+    }
+]
+
+function myAuthorizer(username, password) {
+    return USERS.some((user)=>{
+        return user.username == username && user.password == password
+    })
+}
+
+app.get('/', (req, res)=>{
+    res.location(`/api/user/${req.auth.user}`);
+    res.statusCode = 301;
+    res.end()
+})
+
 
 //transfer front end request into json: we can access via res.body.something
 app.use(bodyParser.json())
@@ -34,5 +57,4 @@ app.use('/api', requestControl)
 
 
 
-app.listen(8000);
-console.log("start listening port 8000")
+app.listen(8000,()=>console.log("start listening port 8000"));
