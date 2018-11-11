@@ -5,25 +5,40 @@ const bodyParser = require('body-parser');
 
 class StickyActions {
     constructor(inputYourJsonFile) {
-        this.path = inputYourJsonFile;
+        this.file = inputYourJsonFile;
     }
     readJson() { // this function return a message json file
         return new Promise((resolve, reject) => {
-            fs.readFile(`./json/${this.path}`, 'utf8', (err, data) => {
+            fs.readFile(`./json/${this.file}`, 'utf8', (err, data) => {
                 if (err) {
-                    console.log('cannot find message.json')
+                    console.log(`cannot find ${this.file}`)
                 } else {
-                    console.log(`successful get: ${this.path}`)
+                    console.log(`successful get ${this.file}`)
                     resolve(JSON.parse(data))
                 }
             })
         })
     }
 
+    readJsonDel() { // this function return a message json file
+        return new Promise((resolve, reject) => {
+            fs.readFile(`./json/${this.file}`, 'utf8', (err, data) => {
+                if (err) {
+                    console.log(`cannot find ${this.file}`)
+                } else {
+                    console.log(`successful get ${this.file}`)
+                    resolve(JSON.parse(data))
+                }
+            })
+        })
+    }
+
+
     addMsg(data, user, stuff) {
         return new Promise((resolve, reject) =>{
             let newNotes = data[user]["msg"]
             data[user]["msg"] =[stuff,...newNotes]
+            console.log("adding new message: "+ stuff)
             resolve(data)
         })
     }
@@ -38,20 +53,20 @@ class StickyActions {
                 }
             }
             data[user]["msg"] = r
+            console.log("remove message: index "+ msgIndex)
             resolve(data)
         })
     }
 
 
-
-    wrtieJson(data) { // this function return a message json file
+    writeJson(data) {
         return new Promise((resolve, reject) => {
             let latestData = JSON.stringify(data)
-            fs.writeFile(`./json/${this.path}`, latestData, (err, data) => {
+            fs.writeFile(`./json/${this.file}`, latestData, (err, data) => {
                 if (err) {
-                    console.log('cannot write message.json')
+                    console.log(`cannot write ${this.file}`)
                 } else {
-                    console.log(`successfully replace: ${this.path}`)
+                    console.log(`successfully replace new: ${this.file}`)
                     resolve(latestData)
                 }
             })
@@ -59,6 +74,9 @@ class StickyActions {
     }
 
 }
+
+
+
 
 
 module.exports = StickyActions
