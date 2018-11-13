@@ -65,7 +65,7 @@ var client = new pg.Client(config);
 
 client.connect();
 
-client.query('SELECT name FROM fruits WHERE color='orange';', function(err, results) {
+client.query('SELECT name FROM fruits WHERE color="orange";', function(err, results) {
     if(err) {
         console.log(err);
     }

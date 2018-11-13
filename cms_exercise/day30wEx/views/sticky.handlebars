@@ -32,6 +32,7 @@
         {{#each message as |value key|}}
         <tr>
             <th>{{value}}</th>
+            <th><button type="button" class="btn btn-outline-danger" onclick="edit({{key}})">Edit</button></th>
             <th><button type="button" class="btn btn-outline-danger" onclick="sendDelete({{key}})">Remove</button></th>
         </tr>
         {{/each}}

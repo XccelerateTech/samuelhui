@@ -58,6 +58,15 @@ class StickyActions {
         })
     }
 
+    editMsg(data, user, msgIndex, stuff){
+        return new Promise((resolve, reject)=>{
+            data[user]["msg"][msgIndex] = stuff
+            console.log(`${user}'s message[${msgIndex}] has been changed to: ${stuff}`)
+            resolve(data)
+        })
+    }
+
+
 
     writeJson(data) {
         return new Promise((resolve, reject) => {

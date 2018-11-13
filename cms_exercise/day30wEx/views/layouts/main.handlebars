@@ -43,7 +43,7 @@
             url: url,
             data: JSON.stringify(data),
             success: function (data) {
-                console.log("cool")
+                console.log("del jor")
                 window.location.reload()
                 
             },
@@ -53,6 +53,31 @@
                 
             }
         });
+
+
+
+    function sendPut(index, stuff) {
+        event.preventDefault();
+        let url = window.location.href;
+        let data = [index, stuff]
+        $.ajax({
+            type: "PUT",
+            url: url,
+            data: JSON.stringify(data),
+            success: function (data) {
+                console.log("put jor")
+                window.location.reload()
+                
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                
+            }
+        });
+
+
+
+
     }
 </script>
 

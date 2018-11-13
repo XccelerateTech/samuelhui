@@ -38,6 +38,10 @@ router.post('/user/:id', function (req, res) {
         res.send('You are not allow to access dumb ass')
     }
 })
+
+
+
+
 //when user fired the remove button
 router.delete('/user/:id', function (req, res) {
     if (req.auth.user) {
