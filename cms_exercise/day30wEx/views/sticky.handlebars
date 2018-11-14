@@ -25,15 +25,16 @@
         <thead>
             <tr>
                 <th>Message</th>
+                <th>Edit</th>
                 <th>Remove</th>
             </tr>
         </thead>
 
         {{#each message as |value key|}}
         <tr>
-            <th>{{value}}</th>
-            <th><button type="button" class="btn btn-outline-danger" onclick="edit({{key}})">Edit</button></th>
-            <th><button type="button" class="btn btn-outline-danger" onclick="sendDelete({{key}})">Remove</button></th>
+            <th id="input{{key}}">{{value}}</th>
+            <th id="edit{{key}}"><button type="button" class="btn btn-outline-success" onclick="edit({{key}})">Edit</button></th>
+            <th id="fire{{key}}"><button type="button" class="btn btn-outline-danger" onclick="sendDelete({{key}})">Remove</button></th>
         </tr>
         {{/each}}
     </table>

@@ -40,7 +40,29 @@ router.post('/user/:id', function (req, res) {
 })
 
 
+router.put('/user/:id', function (req, res) {
+    if (req.auth.user) {
+        let user = req.auth.user
+        let key = req.body
+        let k = key["hello[]"]
+        let msgIndex = k[0]
+        let stuff = k[1]
+        console.log("receive actions to remove index: " + k)
+        stickyActions.readJsonDel()
+            .then((data) => stickyActions.editMsg(data, user, msgIndex, stuff))
+            .then((data) => stickyActions.writeJson(data))
+            .then((data) => {
+                data = JSON.parse(data)
+                res.render('sticky', {
+                    title: user,
+                    message: data[`${user}`]['msg']
+                })
+            })
+    } else {
+        res.send('You are not allow to access dumb ass')
+    }
 
+})
 
 //when user fired the remove button
 router.delete('/user/:id', function (req, res) {

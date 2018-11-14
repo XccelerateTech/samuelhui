@@ -28,7 +28,12 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
-<script>
+
+
+
+<script type="text/javascript">
+    let isEditingText = false;
+
     $(".textarea").keyup(function () {
         $(".textC").text(`${(250 - $(this).val().length)}/250`);
     });
@@ -36,7 +41,7 @@
     function sendDelete(index) {
         event.preventDefault();
         let url = window.location.href;
-       
+
         let data = index;
         $.ajax({
             type: "DELETE",
@@ -45,39 +50,48 @@
             success: function (data) {
                 console.log("del jor")
                 window.location.reload()
-                
+
             },
             error: function (data) {
                 console.log('Error:', data);
                 console.log(index)
-                
+
             }
         });
+    }
 
+    function edit(index) {
+        if (isEditingText == false) {
+            let text = $(`#input${index}`).text()
+            $(`#input${index}`).empty().append(`<input id = "tempBox" name="cool" value="${text}">`)
+            $(`#edit${index}`).empty().append(`<button type="button" class="btn btn-outline-success" onclick="sendPut(${index})">Update</button>`)
+            isEditingText = true
+        }
+    }
 
-
-    function sendPut(index, stuff) {
+    function sendPut(index) {
         event.preventDefault();
+        isEditingText == false
+        let stuff = $("#tempBox").val()
         let url = window.location.href;
-        let data = [index, stuff]
+        index = "" + index
+        let cool = [index, stuff]
         $.ajax({
             type: "PUT",
             url: url,
-            data: JSON.stringify(data),
+            data: {
+                "hello": cool
+            },
             success: function (data) {
                 console.log("put jor")
                 window.location.reload()
-                
+
             },
             error: function (data) {
                 console.log('Error:', data);
-                
+
             }
         });
-
-
-
-
     }
 </script>
 
