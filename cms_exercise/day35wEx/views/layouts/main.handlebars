@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sticky Notes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/asset/main.css">
+</head>
+
+<body>
+
+
+
+    {{{body}}}
+
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript">
+    let isEditingText = false;
+
+    $(".textarea").keyup(function () {
+        $(".textC").text(`${(250 - $(this).val().length)}/250`);
+    });
+
+    function sendDelete(index) {
+        event.preventDefault();
+        let url = window.location.href;
+
+        let data = index;
+        $.ajax({
+            type: "DELETE",
+            url: url,
+            data: JSON.stringify(data),
+            success: function (data) {
+                console.log("del jor")
+                window.location.reload()
+
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                console.log(index)
+
+            }
+        });
+    }
+
+    function edit(index) {
+        if (isEditingText == false) {
+            let text = $(`#input${index}`).text()
+            $(`#input${index}`).empty().append(`<input id = "tempBox" name="cool" value="${text}">`)
+            $(`#edit${index}`).empty().append(`<button type="button" class="btn btn-outline-success" onclick="sendPut(${index})">Update</button>`)
+            isEditingText = true
+        }
+    }
+
+    function sendPut(index) {
+        event.preventDefault();
+        isEditingText == false
+        let stuff = $("#tempBox").val()
+        let url = window.location.href;
+        index = "" + index
+        let cool = [index, stuff]
+        $.ajax({
+            type: "PUT",
+            url: url,
+            data: {
+                "hello": cool
+            },
+            success: function (data) {
+                console.log("put jor")
+                window.location.reload()
+
+            },
+            error: function (data) {
+                console.log('Error:', data);
+
+            }
+        });
+    }
+</script>
+
+</html>
