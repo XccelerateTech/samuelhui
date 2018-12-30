@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.setting {
+  padding: 20px;
+}
+
+
+.yee {
+  height: 100vh;
+}
+.yeee {
+  height: 100%;
+}
+
+.fadeOut{
+  position: fixed;
+  z-index: -10;
+  opacity:0;
+  width:500px;
+  height:500px;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+  transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+ 
+
+}
+.fadeIn{
+  position: fixed;
+  z-index: 10;
+  opacity:1;
+  width:500px;
+  height:500px;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+  transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+
+}
